@@ -1,0 +1,6 @@
+framework module Pods_Near_Me {
+  umbrella header "Pods-Near Me-umbrella.h"
+
+  export *
+  module * { export * }
+}
