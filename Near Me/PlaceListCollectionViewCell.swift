@@ -2,8 +2,8 @@
 //  PlaceListCollectionViewCell.swift
 //  Near Me
 //
-//  Created by Anshul Shah on 29/07/17.
-//  Copyright © 2017 Anshul Shah. All rights reserved.
+//  Created by Raj Shah on 29/07/17.
+//  Copyright © 2017 Raj Shah. All rights reserved.
 //
 
 import UIKit

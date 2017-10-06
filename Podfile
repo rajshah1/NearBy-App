@@ -7,5 +7,5 @@ target 'Near Me' do
 	
   # Pods for Near Me
   pod 'Alamofire', '~> 4.4'
- 
+  pod 'AlamofireImage', '~> 3.3'
 end

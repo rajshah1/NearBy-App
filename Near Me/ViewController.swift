@@ -2,8 +2,8 @@
 //  ViewController.swift
 //  Near Me
 //
-//  Created by Anshul Shah on 15/07/17.
-//  Copyright © 2017 Anshul Shah. All rights reserved.
+//  Created by Raj Shah on 15/07/17.
+//  Copyright © 2017 Raj Shah. All rights reserved.
 //
 
 import UIKit
@@ -57,7 +57,7 @@ extension ViewController: UICollectionViewDelegate,UICollectionViewDataSource,UI
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : PlaceListCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! PlaceListCollectionViewCell
-       // cell.placeTypeImageView.image = UIImage.init(named: self.placeTypeArray[indexPath.row])
+        cell.placeTypeImageView.image = UIImage.init(named: self.placeTypeArray[indexPath.row])
         cell.placeTypeLbl.text = self.placeTypeArray[indexPath.row]
         return cell
     }

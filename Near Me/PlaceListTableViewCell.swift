@@ -2,8 +2,8 @@
 //  PlaceListTableViewCell.swift
 //  Near Me
 //
-//  Created by Anshul Shah on 21/07/17.
-//  Copyright © 2017 Anshul Shah. All rights reserved.
+//  Created by Raj Shah on 21/07/17.
+//  Copyright © 2017 Raj Shah. All rights reserved.
 //
 
 import UIKit
@@ -13,6 +13,7 @@ class PlaceListTableViewCell: UITableViewCell {
    
     @IBOutlet weak var placeNameLabel: UILabel!
     @IBOutlet weak var placeAddressLabel: UILabel!
+    @IBOutlet weak var placeCallButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

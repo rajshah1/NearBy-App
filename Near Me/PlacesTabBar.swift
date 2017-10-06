@@ -2,8 +2,8 @@
 //  PlacesTabBar.swift
 //  Near Me
 //
-//  Created by Anshul Shah on 29/07/17.
-//  Copyright © 2017 Anshul Shah. All rights reserved.
+//  Created by Raj Shah on 29/07/17.
+//  Copyright © 2017 Raj Shah. All rights reserved.
 //
 
 import UIKit
@@ -11,6 +11,7 @@ import CoreLocation
 class PlacesTabBar: UITabBarController {
 
     var placeType: String = String()
+    var places: [Place] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         

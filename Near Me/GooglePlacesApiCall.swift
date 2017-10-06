@@ -2,15 +2,15 @@
 //  GooglePlacesApiCall.swift
 //  Near Me
 //
-//  Created by Anshul Shah on 29/07/17.
-//  Copyright © 2017 Anshul Shah. All rights reserved.
+//  Created by Raj Shah on 29/07/17.
+//  Copyright © 2017 Raj Shah. All rights reserved.
 //
 import CoreLocation
 import Foundation
 import Alamofire
 
 public protocol GooglePlacesApiDelegete{
-    func googlePlacesApiLocationDidGet()
+    func googlePlacesApiLocationDidGet(_ location: CLLocation)
 }
 
 
@@ -43,6 +43,7 @@ public class GooglePlaceApi: NSObject{
     public func getGooglePlacesList(_ type: String, success: @escaping (_ placeList: PlacesList)->Void){
         var urlRequest: URLRequest = URLRequest.init(url: URL(string: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(self.latitude),\(self.longtitude)&radius=1000&types=\(type)&key=\(self.googleApiKey)")!, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10.0)
         urlRequest.httpMethod = "Get"
+        print(urlRequest)
         Alamofire.request(urlRequest).responseJSON { (jsonResponse) in
             let responseDictionary = jsonResponse.result.value as! NSDictionary
 //            print(responseDictionary)
@@ -53,13 +54,23 @@ public class GooglePlaceApi: NSObject{
     class func getNextResults(_ nextPageToken: String, success: @escaping (_ placeList: PlacesList)->Void){
         var urlRequest: URLRequest = URLRequest.init(url: URL(string: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=\(nextPageToken)&key=AIzaSyB7yYN2Wtc7PEkneyWfVmF1SXVQomcT9k0")!, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10.0)
         urlRequest.httpMethod = "Get"
+        
         Alamofire.request(urlRequest).responseJSON { (jsonResponse) in
             let responseDictionary = jsonResponse.result.value as! NSDictionary
             let placesList: PlacesList = PlacesList.init(responseDictionary)
             success(placesList)
         }
     }
-    
+    class func placeDetail(_ placeId: String, success: @escaping (_ placeDetail: PlaceDetail)->Void){
+        var urlRequest: URLRequest = URLRequest.init(url: URL(string: "https://maps.googleapis.com/maps/api/place/details/json?placeid=\(placeId)&key=AIzaSyB7yYN2Wtc7PEkneyWfVmF1SXVQomcT9k0")!, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10.0)
+        urlRequest.httpMethod = "Get"
+        print(urlRequest)
+        Alamofire.request(urlRequest).responseJSON { (jsonResponse) in
+            let responseDictionary = jsonResponse.result.value as! NSDictionary
+            let placeDetails: PlaceDetail = PlaceDetail(responseDictionary)
+            success(placeDetails)
+        }
+    }
     
     
 }
@@ -88,7 +99,7 @@ extension GooglePlaceApi: CLLocationManagerDelegate{
         let coordinations = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,longitude: userLocation.coordinate.longitude)
         self.latitude = String(coordinations.latitude)
         self.longtitude = String(coordinations.longitude)
-        delegate?.googlePlacesApiLocationDidGet()
+        delegate?.googlePlacesApiLocationDidGet(userLocation)
       print(self.latitude + "    " + self.longtitude)
     }
 }

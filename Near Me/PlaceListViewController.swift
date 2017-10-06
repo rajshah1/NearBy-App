@@ -2,8 +2,8 @@
 //  PlaceListViewController.swift
 //  Near Me
 //
-//  Created by Anshul Shah on 21/07/17.
-//  Copyright © 2017 Anshul Shah. All rights reserved.
+//  Created by Raj Shah on 21/07/17.
+//  Copyright © 2017 Raj Shah. All rights reserved.
 //
 
 import UIKit
@@ -15,7 +15,8 @@ class PlaceListViewController: UIViewController {
     let googleCall: GooglePlaceApi = GooglePlaceApi.init(googlePlacesApikey: "AIzaSyB7yYN2Wtc7PEkneyWfVmF1SXVQomcT9k0")
     let locationManger:CLLocationManager = CLLocationManager()
     var placesArray: [Place] = []
-    
+    var selectedPlaceId: String = ""
+    var selectedIndex: Int = 0
     @IBOutlet weak var tableView: UITableView!
   
 
@@ -36,15 +37,19 @@ class PlaceListViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "segue"){
+            let vc = segue.destination as! PlaceDetailsViewController
+            vc.id = selectedPlaceId
+        }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    */
+ 
 
 }
 extension PlaceListViewController: UITableViewDelegate,UITableViewDataSource{
@@ -53,15 +58,22 @@ extension PlaceListViewController: UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: PlaceListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PlaceListTableViewCell
-        cell.placeNameLabel.text = "Place name \(indexPath.row + 1)" /*placesArray[indexPath.row].placeName*/
-        cell.placeAddressLabel.text = "Place Address \(indexPath.row + 1)"/*placesArray[indexPath.row].placeAddress*/
+        cell.placeNameLabel.text = placesArray[indexPath.row].placeName
+        cell.placeAddressLabel.text = placesArray[indexPath.row].placeAddress
+        selectedIndex = indexPath.row
+        cell.placeCallButton.tag = indexPath.row
+        cell.isUserInteractionEnabled = true
         return cell
     }
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
+
+
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 64
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedPlaceId = self.placesArray[indexPath.row].placeID
+        self.performSegue(withIdentifier: "segue", sender: self)
     }
   
 }
@@ -71,10 +83,12 @@ extension PlaceListViewController: CLLocationManagerDelegate{
     }
 }
 extension PlaceListViewController: GooglePlacesApiDelegete{
-    func googlePlacesApiLocationDidGet() {
+    func googlePlacesApiLocationDidGet(_ location: CLLocation) {
         googleCall.getGooglePlacesList((parent as! PlacesTabBar).placeType) { (place) in
             self.placesArray = place.places
             self.tableView.reloadData()
+            let parent = self.parent as? PlacesTabBar
+            parent?.places = place.places
         }
     }
 }
