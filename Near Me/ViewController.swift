@@ -3,7 +3,7 @@
 //  Near Me
 //
 //  Created by Raj Shah on 15/07/17.
-//  Copyright © 2017 Raj Shah. All rights reserved.
+//  Copyright © 2017 Raj Shah. All rights reserved
 //
 
 import UIKit
