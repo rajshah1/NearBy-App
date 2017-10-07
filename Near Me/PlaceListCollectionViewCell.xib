@@ -19,29 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="200" height="240"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUn-ZP-ZxJ">
-                        <rect key="frame" x="79.5" y="205" width="42" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j6d-Sw-rdU">
-                        <rect key="frame" x="10" y="10" width="180" height="180"/>
-                    </imageView>
-                </subviews>
-            </view>
-            <constraints>
-                <constraint firstItem="GUn-ZP-ZxJ" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" multiplier="215:120" id="6IY-dw-QPv"/>
-                <constraint firstItem="j6d-Sw-rdU" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="9IE-Or-VNO"/>
-                <constraint firstItem="j6d-Sw-rdU" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" multiplier="100:120" id="OsH-yS-XCT"/>
-                <constraint firstItem="GUn-ZP-ZxJ" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="PPN-Aq-Jlx"/>
-                <constraint firstItem="j6d-Sw-rdU" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="180:240" id="Shx-4i-kb1"/>
-                <constraint firstItem="j6d-Sw-rdU" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="180:200" id="cqT-y4-gYF"/>
-            </constraints>
-            <connections>
-                <outlet property="placeTypeImageView" destination="j6d-Sw-rdU" id="HoB-9H-IXS"/>
-                <outlet property="placeTypeLbl" destination="GUn-ZP-ZxJ" id="Dt4-W6-Qbt"/>
-            </connections>
+                    
         </collectionViewCell>
     </objects>
 </document>
