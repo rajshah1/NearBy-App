@@ -2,9 +2,8 @@
 //  PlaceListTableViewCell.swift
 //  Near Me
 //
-//  Created by Raj Shah on 21/07/17.
-//  Copyright © 2017 Raj Shah. All rights reserved.
-//
+//  Created by Raj Shah on 21/08/17.
+
 
 import UIKit
 
