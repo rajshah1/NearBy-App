@@ -3,8 +3,7 @@
 //  Near Me
 //
 //  Created by Raj Shah on 21/07/17.
-//  Copyright © 2017 Raj Shah. All rights reserved.
-//
+
 
 import UIKit
 import CoreLocation
@@ -28,10 +27,7 @@ class PlaceListViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
     
     @IBAction func onClickBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -82,7 +78,7 @@ extension PlaceListViewController: CLLocationManagerDelegate{
         googleCall.setupDelegateForLoction(manager, locations: locations)
     }
 }
-extension PlaceListViewController: GooglePlacesApiDelegete{
+extension PlaceListViewController: GooglePlacesApi{
     func googlePlacesApiLocationDidGet(_ location: CLLocation) {
         googleCall.getGooglePlacesList((parent as! PlacesTabBar).placeType) { (place) in
             self.placesArray = place.places
