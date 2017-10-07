@@ -3,7 +3,7 @@
 //  Near Me
 //
 //  Created by Raj Shah on 08/08/17.
-//  Copyright © 2017 Raj Shah. All rights reserved.
+
 //
 import CoreLocation
 import Foundation
