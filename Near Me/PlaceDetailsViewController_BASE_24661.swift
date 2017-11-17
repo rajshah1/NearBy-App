@@ -3,11 +3,11 @@
 //  Near Me
 //
 //  Created by Raj Shah on 05/10/17.
-
+//  Copyright © 2017 Raj Shah. All rights reserved.
+//
 
 import UIKit
 import Alamofire
-import CoreData
 class PlaceDetailsViewController: UIViewController {
 
     var id: String = ""
@@ -19,7 +19,7 @@ class PlaceDetailsViewController: UIViewController {
     @IBOutlet var isOpenLabel: UILabel?
     @IBOutlet weak var RatingLabel: UILabel!
     
-    //erroors solved.
+    
     @IBOutlet weak var webBTN: UIButton!
     @IBOutlet weak var callBTN: UIButton!
     var phoneNumbers: String = ""
@@ -53,22 +53,13 @@ class PlaceDetailsViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
-
-    @IBAction func onClickAddToFavourite(_ sender: Any) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let favourites = Favourites(context: context) // Link Task & Context
-        favourites.favouriteID = id
-        favourites.favoriteName = nameLabel?.text!
-        favourites.favouriteVicinity = addressLabel?.text!
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-    }
-
+  
     @IBAction func onClickCall(_ sender: Any) {
         //if let url = URL(string: "tel://\(phoneNumbers)") {
         //UIApplication.shared.open(URL(string: "tel://\(phoneNumbers)")!, options: [:], completionHandler: nil)
         //}
     }
-
+    
     @IBAction func onClickWeb(_ sender: Any) {
     }
     @IBAction func onClickBackButton(_ sender: Any) {
@@ -76,13 +67,19 @@ class PlaceDetailsViewController: UIViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        //  of any resources that can be recreated.
+        // Dispose of any resources that can be recreated.
     }
-
+    
 
     /*
     // MARK: - Navigation
-*/
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }
 extension PlaceDetailsViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{

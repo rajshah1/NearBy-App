@@ -2,9 +2,7 @@
 //  GooglePlacesApiCallAndResponse.swift
 //  Near Me
 //
-//  Created by Raj Shah on 29/07/17.
-//  Copyright © 2017 Raj Shah. All rights reserved.
-//
+//created by raj shah.
 
 import Foundation
 import Alamofire

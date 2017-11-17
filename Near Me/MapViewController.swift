@@ -2,9 +2,8 @@
 //  MapViewController.swift
 //  Near Me
 //
-//  Created by Raj Shah on 14/09/17.
-//  Copyright © 2017 Raj Shah. All rights reserved.
-//
+//  Created by Raj Shah on 20/09/17.
+
 
 import UIKit
 import MapKit
@@ -16,12 +15,9 @@ class MapViewController: UIViewController {
     let locationManger:CLLocationManager = CLLocationManager()
     var placesArray: [Place] = []
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        googleCall.getLocation(self, locationManager: locationManger)
-         googleCall.delegate = self
+    
         // Do any additional setup after loading the view.
-    }
+    
     
     @IBAction func onClickBack(_ sender: Any) {
         _ = self.navigationController?.popViewController(animated: true)
@@ -34,20 +30,11 @@ class MapViewController: UIViewController {
     /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
+    
     */
 
 }
-extension MapViewController: CLLocationManagerDelegate{
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        googleCall.setupDelegateForLoction(manager, locations: locations)
 
-    }
-}
 extension MapViewController: GooglePlacesApiDelegete{
     
     func googlePlacesApiLocationDidGet(_ location: CLLocation) {

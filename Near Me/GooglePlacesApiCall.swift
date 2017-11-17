@@ -2,23 +2,21 @@
 //  GooglePlacesApiCall.swift
 //  Near Me
 //
-//  Created by Raj Shah on 29/07/17.
-//  Copyright © 2017 Raj Shah. All rights reserved.
+//  Created by Raj Shah on 08/08/17.
+
 //
 import CoreLocation
 import Foundation
 import Alamofire
 
-public protocol GooglePlacesApiDelegete{
-    func googlePlacesApiLocationDidGet(_ location: CLLocation)
-}
+
 
 
 public class GooglePlaceApi: NSObject{
     fileprivate var googleApiKey: String = ""
     fileprivate var latitude: String = ""
     fileprivate var longtitude: String = ""
-    public var delegate: GooglePlacesApiDelegete?
+    
     public init(googlePlacesApikey: String){
         super.init()
         self.googleApiKey = googlePlacesApikey
@@ -39,28 +37,6 @@ public class GooglePlaceApi: NSObject{
     
     
     
-
-    public func getGooglePlacesList(_ type: String, success: @escaping (_ placeList: PlacesList)->Void){
-        var urlRequest: URLRequest = URLRequest.init(url: URL(string: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(self.latitude),\(self.longtitude)&radius=1000&types=\(type)&key=\(self.googleApiKey)")!, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10.0)
-        urlRequest.httpMethod = "Get"
-        print(urlRequest)
-        Alamofire.request(urlRequest).responseJSON { (jsonResponse) in
-            let responseDictionary = jsonResponse.result.value as! NSDictionary
-//            print(responseDictionary)
-            let placesList: PlacesList = PlacesList.init(responseDictionary)
-            success(placesList)
-        }
-    }
-    class func getNextResults(_ nextPageToken: String, success: @escaping (_ placeList: PlacesList)->Void){
-        var urlRequest: URLRequest = URLRequest.init(url: URL(string: "https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken=\(nextPageToken)&key=AIzaSyB7yYN2Wtc7PEkneyWfVmF1SXVQomcT9k0")!, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10.0)
-        urlRequest.httpMethod = "Get"
-        
-        Alamofire.request(urlRequest).responseJSON { (jsonResponse) in
-            let responseDictionary = jsonResponse.result.value as! NSDictionary
-            let placesList: PlacesList = PlacesList.init(responseDictionary)
-            success(placesList)
-        }
-    }
     class func placeDetail(_ placeId: String, success: @escaping (_ placeDetail: PlaceDetail)->Void){
         var urlRequest: URLRequest = URLRequest.init(url: URL(string: "https://maps.googleapis.com/maps/api/place/details/json?placeid=\(placeId)&key=AIzaSyB7yYN2Wtc7PEkneyWfVmF1SXVQomcT9k0")!, cachePolicy: URLRequest.CachePolicy.useProtocolCachePolicy, timeoutInterval: 10.0)
         urlRequest.httpMethod = "Get"
@@ -92,6 +68,7 @@ extension GooglePlaceApi: CLLocationManagerDelegate{
     }
     
     
+    //error in this code find
     //getLocationDelegate
     public func setupDelegateForLoction(_ manager: CLLocationManager, locations: [CLLocation]){
         let userLocation:CLLocation = locations[locations.count - 1] as CLLocation
