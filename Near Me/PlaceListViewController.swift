@@ -92,3 +92,73 @@ extension PlaceListViewController: GooglePlacesApiDelegete{
         }
     }
 }
+
+class FavouriteViewController: UIViewController{
+    @IBOutlet weak var tableView: UITableView!
+    var favouriteList : [Favourites] = []
+    var selectedPlaceId = ""
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.register(UINib(nibName: "PlaceListTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        self.getData()
+    }
+    @IBAction func onClickBack(_ sender: Any) {
+        _ = self.navigationController?.popViewController(animated: true)
+    }
+    func getData() {
+        do {
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            favouriteList = try context.fetch(Favourites.fetchRequest())
+            self.tableView.reloadData()
+        } catch {
+            print("Fetching Failed")
+        }
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "segue123"){
+            let vc = segue.destination as! PlaceDetailsViewController
+            vc.id = selectedPlaceId
+        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+}
+extension FavouriteViewController: UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return favouriteList.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: PlaceListTableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PlaceListTableViewCell
+        cell.placeNameLabel.text = favouriteList[indexPath.row].favoriteName
+        cell.placeAddressLabel.text = favouriteList[indexPath.row].favouriteVicinity
+        cell.isUserInteractionEnabled = true
+        return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 64
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedPlaceId = favouriteList[indexPath.row].favouriteID!
+        self.performSegue(withIdentifier: "segue123", sender: self)
+    }
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

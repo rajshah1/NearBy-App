@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/anshulshah/Desktop/Projects/Near Me/Near Me/Favourites+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/anshulshah/Desktop/Projects/Near Me/Near Me/Favourites+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:Near Me.xcodeproj">
    </FileRef>
    <FileRef

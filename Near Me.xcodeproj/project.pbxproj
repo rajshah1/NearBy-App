@@ -26,6 +26,8 @@
 		6198EC241F87F5D6008C16E6 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6198EC261F87F5D6008C16E6 /* Alamofire.framework */; };
 		6198EC251F87F5D6008C16E6 /* AlamofireImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6198EC271F87F5D6008C16E6 /* AlamofireImage.framework */; };
 		61A948EF1F6AE3A20027232B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A948EE1F6AE3A20027232B /* MapViewController.swift */; };
+		61ABA2011FBB4AA2006FB5A3 /* Favourites+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ABA1FF1FBB4AA2006FB5A3 /* Favourites+CoreDataClass.swift */; };
+		61ABA2021FBB4AA2006FB5A3 /* Favourites+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61ABA2001FBB4AA2006FB5A3 /* Favourites+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		6198EC261F87F5D6008C16E6 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6198EC271F87F5D6008C16E6 /* AlamofireImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AlamofireImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A948EE1F6AE3A20027232B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		61ABA1FF1FBB4AA2006FB5A3 /* Favourites+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Favourites+CoreDataClass.swift"; path = "/Users/anshulshah/Desktop/Projects/Near Me/Near Me/Favourites+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		61ABA2001FBB4AA2006FB5A3 /* Favourites+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Favourites+CoreDataProperties.swift"; path = "/Users/anshulshah/Desktop/Projects/Near Me/Near Me/Favourites+CoreDataProperties.swift"; sourceTree = "<absolute>"; };
 		61B9726B1F4BEAA100044851 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		DAF5D7D883C5550721A04ABD /* Pods-Near Me.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Near Me.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Near Me/Pods-Near Me.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +99,8 @@
 				612181D71F1A4CAA00102EBF /* AppDelegate.swift */,
 				612181D91F1A4CAA00102EBF /* ViewController.swift */,
 				614D5DE01F2279050000824F /* PlaceListViewController.swift */,
+				61ABA1FF1FBB4AA2006FB5A3 /* Favourites+CoreDataClass.swift */,
+				61ABA2001FBB4AA2006FB5A3 /* Favourites+CoreDataProperties.swift */,
 				619525071F2BD964009FEE28 /* PlacesTabBar.swift */,
 				612181DB1F1A4CAA00102EBF /* Main.storyboard */,
 				612181E11F1A4CAA00102EBF /* Assets.xcassets */,
@@ -182,7 +188,7 @@
 				TargetAttributes = {
 					612181D31F1A4CAA00102EBF = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = SE7GT7SNTL;
+						DevelopmentTeam = P37QYRDUL2;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -274,7 +280,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				612181E01F1A4CAA00102EBF /* Near_Me.xcdatamodeld in Sources */,
+				61ABA2011FBB4AA2006FB5A3 /* Favourites+CoreDataClass.swift in Sources */,
 				614D5DE11F2279050000824F /* PlaceListViewController.swift in Sources */,
+				61ABA2021FBB4AA2006FB5A3 /* Favourites+CoreDataProperties.swift in Sources */,
 				619525081F2BD964009FEE28 /* PlacesTabBar.swift in Sources */,
 				6198EC231F86AF1D008C16E6 /* PlaceDetailsViewController.swift in Sources */,
 				61A948EF1F6AE3A20027232B /* MapViewController.swift in Sources */,
@@ -410,7 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SE7GT7SNTL;
+				DEVELOPMENT_TEAM = P37QYRDUL2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -431,7 +439,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = SE7GT7SNTL;
+				DEVELOPMENT_TEAM = P37QYRDUL2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",

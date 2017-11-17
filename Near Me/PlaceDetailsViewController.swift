@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import CoreData
 class PlaceDetailsViewController: UIViewController {
 
     var id: String = ""
@@ -53,7 +54,15 @@ class PlaceDetailsViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
-  
+    @IBAction func onClickAddToFavourite(_ sender: Any) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let favourites = Favourites(context: context) // Link Task & Context
+        favourites.favouriteID = id
+        favourites.favoriteName = nameLabel?.text!
+        favourites.favouriteVicinity = addressLabel?.text!
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+    }
+    
     @IBAction func onClickCall(_ sender: Any) {
         //if let url = URL(string: "tel://\(phoneNumbers)") {
         //UIApplication.shared.open(URL(string: "tel://\(phoneNumbers)")!, options: [:], completionHandler: nil)
@@ -67,9 +76,8 @@ class PlaceDetailsViewController: UIViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        //  of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
