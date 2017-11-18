@@ -2,7 +2,7 @@
 //  Favourites+CoreDataProperties.swift
 //  
 //
-//  Created by Anshul Shah on 14/11/17.
+//  Created by Raj Shah on 14/11/17.
 //
 //
 
