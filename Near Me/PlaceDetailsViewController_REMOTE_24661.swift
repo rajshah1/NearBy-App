@@ -7,7 +7,7 @@
 
 import UIKit
 import Alamofire
-class PlaceDetailsViewController: UIViewController {
+class PlaceDetailsViewController: UIViewtroller {
 
     var id: String = ""
     
