@@ -16,7 +16,7 @@ class PlacesTabBar: UITabBarController {
         super.viewDidLoad()
         
         
-        // Do any additional setup after loading the view.
+        // Do any additionl setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
