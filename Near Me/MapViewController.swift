@@ -13,7 +13,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     let googleCall: GooglePlaceApi = GooglePlaceApi.init(googlePlacesApikey: "AIzaSyB7yYN2Wtc7PEkneyWfVmF1SXVQomcT9k0")
     let locationManger:CLLocationManager = CLLocationManager()
-    var placesArray: [Place] = []
+    var placesArray: [Place] = 
     
     
         // Do any additional setup after loading the view.
