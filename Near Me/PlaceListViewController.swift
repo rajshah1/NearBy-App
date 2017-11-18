@@ -113,7 +113,7 @@ class FavouriteViewController: UIViewController{
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "segue123"){
-            let vc = segue.destination as! PlaceDetailsViewController
+            let vc = segue.desination as! PlaceDetailsViewController
             vc.id = selectedPlaceId
         }
         // Get the new view controller using segue.destinationViewController.
