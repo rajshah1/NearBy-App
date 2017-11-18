@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import CoreData
-class PlaceDetailsViewController: UIViewController {
+class PlaceDetailsViewController: UIViewContro {
 
     var id: String = ""
     
